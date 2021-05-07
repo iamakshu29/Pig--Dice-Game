@@ -10,18 +10,11 @@ document.querySelector(".btn--roll").addEventListener('click', function()
     if(gamePlaying)
     {
         let dice = Math.floor(Math.random()*6+1);
-        prevDice = dice;
+
         document.querySelector(".dice").style.display = 'block';
         document.querySelector(".dice").src = 'dice-' + dice + '.png';
 
-        if(dice === 6 && prevDice === 6)
-        {
-            score[activePlayer] = 0;
-            document.querySelector("#score--" + activePlayer).textContent = '0';
-            nextPlayer();
-        }
-
-        else if(dice !== 1)
+        if(dice !== 1)
         {
             roundScore += dice;
             document.querySelector("#current--" + activePlayer).textContent = roundScore;  
